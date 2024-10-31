@@ -175,6 +175,6 @@ end
 
 
 function dvolumerhs!(rhs, Q, vgeo, grav, D, N, nmoist, ntrace)
-    Enzyme.autodiff_no_cassette(volumerhs!, rhs, Q, vgeo, grav, D, N, nmoist, ntrace)
+    Enzyme.autodiff_deferred(Reverse, volumerhs!, rhs, Q, vgeo, grav, D, N, nmoist, ntrace)
     return nothing
 end
